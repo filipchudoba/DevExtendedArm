@@ -11,7 +11,7 @@ class colour:
         self.r = r
         self.g = g
         self.b = b
-        self.finalOperation = "LIGHT_PARAM full_custom_halo_night  0 8.1 -1.9  "
+        self.finalOperation = ""
 
     def lightColour(self):
         chosenOneName = self.nazev
@@ -21,7 +21,8 @@ class colour:
         str(chosenOneR)
         str(chosenOneB)
         str(chosenOneR)
-        self.finalOperation = "LIGHT_PARAM full_custom_halo_night  0 8.1 -1.9  "+str(chosenOneR)+" "+str(chosenOneG)+" "+str(chosenOneB)+" 1  40 0 -1 0 0\n"
+        self.finalOperation = str(chosenOneR)+" "+str(chosenOneG)+" "+str(chosenOneB)
+        #self.finalOperation = "LIGHT_PARAM full_custom_halo_night 0 8.1 -1.9 "+str(chosenOneR)+" "+str(chosenOneG)+" "+str(chosenOneB)+" 1 40 0 -1 0 0\n"
         str(self.finalOperation)
 
 white = colour("white",1,1,1)
@@ -100,11 +101,34 @@ with open('a09_lamp_street2.obj', 'r') as file:
     data = file.readlines()
 
 print ("Changing this line: ", data[index])
-print ("Will be changed with this: " + finalOperation)
 
-data[index] = finalOperation
+linka = data[index]
+x = linka.split(" ")
+print(x)
 
-str(finalOperation)
+i = 0
+stringBeforeAttachement = x[i]
+i =+ 1
+while i < 5:
+    stringBeforeAttachement = stringBeforeAttachement + " " + x[i]
+    print(stringBeforeAttachement)
+    i += 1
+
+stringBeforeAttachement = stringBeforeAttachement + " " + finalOperation
+
+i = i + 3
+
+while i < 14:
+    stringBeforeAttachement = stringBeforeAttachement + " " + x[i]
+    print(stringBeforeAttachement)
+    i += 1
+
+print ("Will be changed with this: " + stringBeforeAttachement)
+print ("The colour will be:" + finalOperation)
+
+data[index] = stringBeforeAttachement
+
+str(stringBeforeAttachement)
 
 # and write everything back
 with open('a09_lamp_street2.obj', 'w') as file:
