@@ -82,54 +82,45 @@ for line in file1:
     # checking string is present in line or not
     if string1 in line:
         
-      flag = 1
-      break 
-          
-# checking condition for string found or not
-if flag == 0: 
-   print('String', string1 , 'Not Found') 
-else: 
-   print('String', string1, 'Found In Line', index)
-  
-# closing text file    
-file1.close() 
-print (index)
-index -= 1
+        index -= 1
 
-# with is like your try .. finally block in this case
-with open('a09_lamp_street2.obj', 'r') as file:
-    data = file.readlines()
+        # with is like your try .. finally block in this case
+        with open('a09_lamp_street2.obj', 'r') as file:
+            data = file.readlines()
 
-print ("Changing this line: ", data[index])
+        print ("Changing this line: ", data[index])
 
-linka = data[index]
-x = linka.split(" ")
-print(x)
+        linka = data[index]
+        x = linka.split(" ")
+        print(x)
 
-i = 0
-stringBeforeAttachement = x[i]
-i =+ 1
-while i < 5:
-    stringBeforeAttachement = stringBeforeAttachement + " " + x[i]
-    print(stringBeforeAttachement)
-    i += 1
+        i = 0
+        stringBeforeAttachement = x[i]
+        i =+ 1
+        while i < 5:
+            stringBeforeAttachement = stringBeforeAttachement + " " + x[i]
+            print(stringBeforeAttachement)
+            i += 1
 
-stringBeforeAttachement = stringBeforeAttachement + " " + finalOperation
+        stringBeforeAttachement = stringBeforeAttachement + " " + finalOperation
 
-i = i + 3
+        i = i + 3
 
-while i < 14:
-    stringBeforeAttachement = stringBeforeAttachement + " " + x[i]
-    print(stringBeforeAttachement)
-    i += 1
+        while i < 14:
+            stringBeforeAttachement = stringBeforeAttachement + " " + x[i]
+            print(stringBeforeAttachement)
+            i += 1
 
-print ("Will be changed with this: " + stringBeforeAttachement)
-print ("The colour will be:" + finalOperation)
+        print ("Will be changed with this: " + stringBeforeAttachement)
+        print ("The colour will be:" + finalOperation)
 
-data[index] = stringBeforeAttachement
+        data[index] = stringBeforeAttachement
 
-str(stringBeforeAttachement)
+        str(stringBeforeAttachement)
 
-# and write everything back
-with open('a09_lamp_street2.obj', 'w') as file:
-    file.writelines(data)
+        # and write everything back
+        with open('a09_lamp_street2.obj', 'w') as file:
+            file.writelines(data)
+        file.close()
+
+        index += 1
