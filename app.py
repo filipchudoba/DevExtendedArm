@@ -12,8 +12,6 @@ from turtle import end_fill
 
 print("The colours will change in this order: ", colourList)
 
-#sceneryPath = input("Insert path to the scenery folder ChudobaDesign_LKPR: ")
-
 #colourList = ("blue","blue","blue","yellow","yellow","yellow")
 
 class colour:

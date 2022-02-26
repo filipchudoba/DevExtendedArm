@@ -1,19 +1,30 @@
 import PySimpleGUI as sg    
-import sys  
+import sys
+from os.path import exists
 
-#Layout
-layout = [[sg.Text('Insert path to the scenery folder ChudobaDesign_LKPR:')],      
-                 [sg.InputText()],        
+file_exists = exists("lkprpath.txt") 
+
+if file_exists == False:
+    #Layout
+    layout = [[sg.Text('Insert path to the scenery folder ChudobaDesign_LKPR:'), sg.FolderBrowse()],
                  [sg.Submit(), sg.Cancel()]]   
 
-window = sg.Window('Line Generator', layout)    
+    window = sg.Window('Line Generator', layout)    
 
-event, values = window.read()
+    event, button = window.read()
 
-#Kdyz klikne na Cancel, tak se to vypne
-if event is "Cancel":
-    sys.exit()
+    #Kdyz klikne na Cancel, tak se to vypne
+    if event == "Cancel":
+        sys.exit()
 
-window.close()
+    window.close()
 
-sceneryPath = values[0]
+    sceneryPath  = button['Browse']
+
+    sceneryPath = sceneryPath.replace("/", "\\\\")
+
+    with open("lkprpath.txt", 'x') as f:
+        f.write(sceneryPath)
+else:
+    with open("lkprpath.txt", 'r') as f:
+        sceneryPath = (f.readlines())[0]
