@@ -14,7 +14,7 @@ if file_exists == False:
     event, button = window.read()
 
     #Kdyz klikne na Cancel, tak se to vypne
-    if event == "Cancel":
+    if event == "Cancel" or event == sg.WIN_CLOSED:
         sys.exit()
 
     window.close()

@@ -11,8 +11,10 @@ from tracemalloc import stop
 from turtle import end_fill
 
 print("The colours will change in this order: ", colourList)
+nameOfFile = "\\Buildings\\02_Terminal\\02_airport_PRAHA.obj"
 
-#colourList = ("blue","blue","blue","yellow","yellow","yellow")
+#colourList = ("blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue",
+# "yellow","yellow","yellow","yellow","yellow","yellow","yellow","yellow","yellow","yellow","yellow","yellow")
 
 class colour:
     def __init__(self, nazev, r, g, b):
@@ -47,7 +49,7 @@ green = colour ("green",0,1,0)
 string1 = 'LIGHT_PARAM'
   
 # opening a text file
-filepath = sceneryPath +'\\a09_lamp_street2.obj'
+filepath = sceneryPath +'\\\\'+nameOfFile
 file1 = open(filepath, "r")
   
 # setting flag and index to 0
@@ -102,7 +104,7 @@ for line in file1:
             finalOperation = black.finalOperation
 
         # with is like your try .. finally block in this case
-        with open('a09_lamp_street2.obj', 'r') as file:
+        with open(filepath, 'r') as file:
             data = file.readlines()
 
         print ("Changing this line: ", data[index])
@@ -138,7 +140,7 @@ for line in file1:
         str(stringBeforeAttachement)
 
         # and write everything back
-        with open('a09_lamp_street2.obj', 'w') as file:
+        with open(filepath, 'w') as file:
             file.writelines(data)
         file.close()
 

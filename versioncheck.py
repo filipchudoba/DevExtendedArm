@@ -34,6 +34,6 @@ if currentVersion == onlineVersion:
     print("Latest version installed :)")
     sys.exit()
 
-#f = open("version.txt", "w")
-#f.write(onlineVersion)
-#f.close()
+f = open("version.txt", "w")
+f.write(onlineVersion)
+f.close()
